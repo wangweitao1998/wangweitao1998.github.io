@@ -12,7 +12,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">首页</a></li>
+            <li id="index"><a href="index.html">首页</a></li>
             <li><a href="arknigts_helper.html">ArkNights Helper</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -23,15 +23,17 @@
     <script>
     var urlstr = location.href;
     $(".nav li").each(function () {
-    	var hrefstr = $(this).children('a').attr('href');
-		console.log("url: "+urlstr);
-		console.log("href: "+hrefstr);
+    	  var hrefstr = $(this).children('a').attr('href');
         if (hrefstr!='' && (urlstr + '/').indexOf(hrefstr) > -1) {
             $(this).addClass('active'); urlstatus = true;
             if($(this).parent('ul').parent('li').attr('id') != null){
         		$(this).parent('ul').parent('li').addClass('active');
         	}
-        } else {
+        } 
+        else if(urlstr == "https://wangweitao1998.github.io/") {
+          $("#index").addClass('active')
+        }
+        else {
             $(this).removeClass('active');
         }
     });  
